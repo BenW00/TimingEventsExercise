@@ -35,8 +35,8 @@ button.addEventListener(`click`, () => {
 
 // Question 4A
 const countdownD = document.querySelector(`#countdown`)
-let seconds = 60
-let minutes = 1
+let seconds = 0
+let minutes = 2
 
 let countdown = setInterval(() => {
     let countClock = document.createElement(`p`);
@@ -53,9 +53,9 @@ let countdown = setInterval(() => {
     }
 
     else if (seconds == 0) {
+        countClock.innerText = minutes + ":" + "00"
         minutes-- 
         seconds += 60
-        countClock.innerText = minutes + ":" + "00"
     }
 
     else if ((seconds.toString()).length == 1) {
@@ -66,6 +66,5 @@ let countdown = setInterval(() => {
         countClock.innerText = minutes + ":" + seconds
     }
 
-    console.log(seconds)
     seconds--
-}, 1000);
+}, 100);
