@@ -18,10 +18,10 @@ setTimeout(() => {
 }, 2000);
 
 // Question 3A
-let count = 1;
+let q3Count = 1;
 let q3a = setInterval(() => {
-  console.log(count);
-  count++;
+  console.log(q3Count);
+  q3Count++;
 }, 1000);
 
 // Question 3B
@@ -30,3 +30,42 @@ const button = document.querySelector(`button`)
 button.addEventListener(`click`, () => {
     clearInterval(q3a);
   });
+
+//   BONUS
+
+// Question 4A
+const countdownD = document.querySelector(`#countdown`)
+let seconds = 60
+let minutes = 1
+
+let countdown = setInterval(() => {
+    let countClock = document.createElement(`p`);
+    countdownD.append(countClock)
+
+    if (minutes == 0 && seconds == 0) {
+        clearInterval(countdown)
+        countClock.innerText = (minutes) + ":" + "00"
+    }
+
+    else if (seconds == 60) {
+        countClock.innerText = (minutes + 1) + ":" + "00"
+
+    }
+
+    else if (seconds == 0) {
+        minutes-- 
+        seconds += 60
+        countClock.innerText = minutes + ":" + "00"
+    }
+
+    else if ((seconds.toString()).length == 1) {
+        countClock.innerText = minutes + ":" + "0" + seconds
+    }
+
+    else {
+        countClock.innerText = minutes + ":" + seconds
+    }
+
+    console.log(seconds)
+    seconds--
+}, 1000);
